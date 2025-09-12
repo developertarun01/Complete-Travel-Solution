@@ -332,13 +332,13 @@ body {
 .section1 {
   /* height: 70vh; */
   /* background: linear-gradient(to bottom, transparent 60%, var(--text-light) 40%),
-    url("images/beach6.jpg") center/cover no-repeat; */
+    url("/images/beach6.jpg") center/cover no-repeat; */
   background: linear-gradient(
       to bottom,
       transparent calc(60% - 1px),
       var(--text-light) 60%
     ),
-    url("images/beach6.jpg") center/cover no-repeat;
+    url("/images/beach6.jpg") center/cover no-repeat;
 }
 
 .all-forms {
@@ -776,22 +776,22 @@ input[type="tel"] {
 
 .section2-card-1 {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    /* black overlay */ url("images/plane1.jpg") center/cover no-repeat;
+    /* black overlay */ url("/images/plane1.jpg") center/cover no-repeat;
 }
 
 .section2-card-2 {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    /* black overlay */ url("images/plane2.jpg") center/cover no-repeat;
+    /* black overlay */ url("/images/plane2.jpg") center/cover no-repeat;
 }
 
 .section2-card-3 {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    /* black overlay */ url("images/plane3.jpg") center/cover no-repeat;
+    /* black overlay */ url("/images/plane3.jpg") center/cover no-repeat;
 }
 
 .section2-card-4 {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    /* black overlay */ url("images/plane4.jpg") center/cover no-repeat;
+    /* black overlay */ url("/images/plane4.jpg") center/cover no-repeat;
 }
 
 .section2-card-bottom-right {
@@ -831,12 +831,12 @@ input[type="tel"] {
 
 .section3-header-1 {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    /* black overlay */ url("images/building3.jpg") center/cover no-repeat;
+    /* black overlay */ url("/images/building3.jpg") center/cover no-repeat;
 }
 
 .section3-header-2 {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    /* black overlay */ url("images/building4.jpg") center/cover no-repeat;
+    /* black overlay */ url("/images/building4.jpg") center/cover no-repeat;
 }
 
 .section3-list {
@@ -924,19 +924,19 @@ input[type="tel"] {
 }
 
 .card-image-1 {
-  background: url(images/family1.jpg) center/cover no-repeat;
+  background: url(/images/family1.jpg) center/cover no-repeat;
 }
 
 .card-image-2 {
-  background: url(images/family2.jpg) center/cover no-repeat;
+  background: url(/images/family2.jpg) center/cover no-repeat;
 }
 
 .card-image-3 {
-  background: url(images/family3.jpg) center/cover no-repeat;
+  background: url(/images/family3.jpg) center/cover no-repeat;
 }
 
 .card-image-4 {
-  background: url(images/family4.jpg) center/cover no-repeat;
+  background: url(/images/family4.jpg) center/cover no-repeat;
 }
 
 .view-more {
@@ -966,12 +966,12 @@ input[type="tel"] {
 /* Section 6 */
 .section3-header-3 {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    /* black overlay */ url("images/hotel1.jpg") center/cover no-repeat;
+    /* black overlay */ url("/images/hotel1.jpg") center/cover no-repeat;
 }
 
 .section3-header-4 {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    /* black overlay */ url("images/hotel2.jpg") center/cover no-repeat;
+    /* black overlay */ url("/images/hotel2.jpg") center/cover no-repeat;
 }
 
 /* section 7 */
