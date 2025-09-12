@@ -201,34 +201,34 @@ const Footer = () => {
           <div className="section9-icons">
             <div className="section9-icons-1">
               <img
-                src="src/images/IATA.webp"
+                src="./src/images/IATA.webp"
                 alt="IATA"
                 style={{ width: "100%", height: "40px" }}
               />
               <img
-                src="src/images/arc.png"
+                src="./src/images/arc.png"
                 alt="ARC"
                 style={{ width: "100%", height: "40px" }}
               />
               <img
-                src="src/images/cloudflare.webp"
+                src="./src/images/cloudflare.webp"
                 alt="Cloudflare"
                 style={{ width: "100%", height: "40px" }}
               />
               <img
-                src="src/images/digicert.webp"
+                src="./src/images/digicert.webp"
                 alt="Digicert"
                 style={{ width: "100%", height: "40px" }}
               />
               <img
-                src="src/images/PCI.webp"
+                src="./src/images/PCI.webp"
                 alt="PCI"
                 style={{ width: "100%", height: "40px" }}
               />
             </div>
             <div>
               <img
-                src="src/images/payment.png"
+                src="./src/images/payment.png"
                 alt="Payments"
                 style={{ width: "100%" }}
               />
