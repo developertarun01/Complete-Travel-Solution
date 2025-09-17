@@ -49,7 +49,7 @@ const CarForm = () => {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="flex flex-col md:flex-row gap-4 items-end">
         {/* Pick-up Location */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <MapPin className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -65,7 +65,7 @@ const CarForm = () => {
         </div>
 
         {/* Drop-off Location */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <MapPin className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -80,7 +80,7 @@ const CarForm = () => {
         </div>
 
         {/* Pick-up Date & Time */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <Calendar className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -96,7 +96,7 @@ const CarForm = () => {
         </div>
 
         {/* Drop-off Date & Time */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <Calendar className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -114,7 +114,7 @@ const CarForm = () => {
         </div>
 
         {/* Driver's Age */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <User className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <select
@@ -133,7 +133,7 @@ const CarForm = () => {
         </div>
 
         {/* Search Button */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <button
             type="submit"
             className="w-full bg-[var(--accent-dark)] hover:bg-[var(--accent)] text-white px-6 py-3 rounded-md font-medium transition-colors duration-200 flex items-center justify-center"

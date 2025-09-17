@@ -195,6 +195,8 @@ body {
   grid-template-columns: repeat(5, 1fr);
   width: 100%;
   max-width: 1100px;
+  top: 68px;
+  z-index: 999;
 }
 
 .all-deals-inner {

@@ -68,7 +68,7 @@ const FlightForm = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {/* Row 1: Trip Type - Responsive for mobile */}
-      <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0">
+      <div className="flex sm:flex-row space-x-4">
         <button
           type="button"
           className={`flex items-center justify-center space-x-2 px-4 py-3 rounded-lg border transition-colors h-12 ${

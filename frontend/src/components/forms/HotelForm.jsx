@@ -51,7 +51,7 @@ const HotelForm = () => {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="flex flex-col md:flex-row gap-4 items-end">
         {/* Destination */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <MapPin className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -67,7 +67,7 @@ const HotelForm = () => {
         </div>
 
         {/* Check-in Date */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <Calendar className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -83,7 +83,7 @@ const HotelForm = () => {
         </div>
 
         {/* Check-out Date */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <Calendar className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -101,7 +101,7 @@ const HotelForm = () => {
         </div>
 
         {/* Rooms */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <Bed className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <select
@@ -120,7 +120,7 @@ const HotelForm = () => {
         </div>
 
         {/* Adults */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <Users className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <select
@@ -139,7 +139,7 @@ const HotelForm = () => {
         </div>
 
         {/* Children */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <Users className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <select
@@ -158,7 +158,7 @@ const HotelForm = () => {
         </div>
 
         {/* Search Button */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <button
             type="submit"
             className="w-full bg-[var(--accent-dark)] hover:bg-[var(--accent)] text-white px-6 py-3 rounded-md font-medium transition-colors duration-200"

@@ -53,7 +53,7 @@ const CruiseForm = () => {
       {/* Cruise Search Fields */}
       <div className="flex flex-col md:flex-row gap-4 items-end">
         {/* Destination */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <MapPin className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -69,7 +69,7 @@ const CruiseForm = () => {
         </div>
 
         {/* Cruise Line */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <Ship className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <select
@@ -89,7 +89,7 @@ const CruiseForm = () => {
         </div>
 
         {/* Ship Name */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <Ship className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -104,7 +104,7 @@ const CruiseForm = () => {
         </div>
 
         {/* Cruise Duration */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <Moon className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <select
@@ -127,7 +127,7 @@ const CruiseForm = () => {
       {/* Contact Information */}
       <div className="flex flex-col md:flex-row gap-4 items-end">
         {/* Full Name */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <User className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -143,7 +143,7 @@ const CruiseForm = () => {
         </div>
 
         {/* Email Address */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <Mail className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -159,7 +159,7 @@ const CruiseForm = () => {
         </div>
 
         {/* Mobile Number */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div className="relative">
             <Phone className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -175,13 +175,13 @@ const CruiseForm = () => {
         </div>
 
         {/* Search Button */}
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <button
             type="submit"
             className="w-full bg-[var(--accent-dark)] hover:bg-[var(--accent)] text-white px-6 py-3 rounded-md font-medium transition-colors duration-200 flex items-center justify-center"
           >
-            <Ship className="h-5 w-5 mr-2" />
-            Search Cruises
+            {/* <Ship className="h-5 w-5 mr-2" /> */}
+            Search
           </button>
         </div>
       </div>
