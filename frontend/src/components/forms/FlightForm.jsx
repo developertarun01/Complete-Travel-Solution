@@ -109,7 +109,7 @@ const FlightForm = () => {
               name="travelClass"
               value={formData.travelClass}
               onChange={handleChange}
-              className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)] h-12"
+              className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12"
             >
               <option value="ECONOMY">Economy</option>
               <option value="PREMIUM_ECONOMY">Premium Economy</option>
@@ -127,7 +127,7 @@ const FlightForm = () => {
             value={formData.origin}
             onChange={handleChange}
             placeholder="From (e.g., JFK)"
-            className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)] h-12"
+            className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12"
             required
             maxLength={3}
             pattern="[A-Za-z]{3}"
@@ -142,7 +142,7 @@ const FlightForm = () => {
             value={formData.destination}
             onChange={handleChange}
             placeholder="To (e.g., LAX)"
-            className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)] h-12"
+            className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12"
             required
             maxLength={3}
             pattern="[A-Za-z]{3}"
@@ -158,7 +158,7 @@ const FlightForm = () => {
               value={formData.fromDate}
               onChange={handleChange}
               min={new Date().toISOString().split("T")[0]}
-              className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)] h-12"
+              className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12"
               required
             />
             <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
@@ -177,7 +177,7 @@ const FlightForm = () => {
                 min={
                   formData.fromDate || new Date().toISOString().split("T")[0]
                 }
-                className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)] h-12"
+                className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12"
                 required
               />
               <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
@@ -194,7 +194,7 @@ const FlightForm = () => {
               name="adults"
               value={formData.adults}
               onChange={handleChange}
-              className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)] h-12 appearance-none"
+              className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12 appearance-none"
             >
               {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
                 <option key={num} value={num}>
@@ -213,7 +213,7 @@ const FlightForm = () => {
               name="children"
               value={formData.children}
               onChange={handleChange}
-              className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)] h-12 appearance-none"
+              className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12 appearance-none"
             >
               {[0, 1, 2, 3, 4, 5, 6].map((num) => (
                 <option key={num} value={num}>
