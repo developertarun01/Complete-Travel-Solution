@@ -61,10 +61,10 @@ const Home = () => {
                       <button
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
-                        className={`w-full flex items-center justify-center space-x-0 sm:space-x-2 px-auto py-3 border transition-all duration-200 ${
+                        className={`w-full flex items-center justify-center space-x-0 sm:space-x-2 px-auto py-3 border border-b-2 transition-all duration-200 ${
                           activeTab === tab.id
                             ? "bg-[var(--primary)] border-[var(--primary)] border-b-[var(--accent-dark)] text-white shadow-lg"
-                            : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:border-[var(--primary)]"
+                            : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:border-b-[var(--accent-dark)]"
                         }`}
                       >
                         <Icon className="hidden sm:block h-5 w-5" />
@@ -233,7 +233,7 @@ const Home = () => {
       {/* Section 2 */}
       <section className="section2">
         <div className="container section2-inner">
-          <h2>Cheap Airline Deals</h2>
+          <h2 className="text-2xl font-semibold">Cheap Airline Deals</h2>
           <div className="grid-mine mt-20">
             <div className="section2-card section2-card-1">
               <h3>American Airlines</h3>
@@ -375,28 +375,28 @@ const Home = () => {
       <section className="section5">
         <div className="container section5-inner">
           <div className="section5-card">
-            <h2>Last Minute Deals</h2>
+            <h2 className="text-xl font-semibold">Last Minute Deals</h2>
             <div className="section5-card-image card-image-1"></div>
             <div className="view-more">
               <a href="#">+ View More</a>
             </div>
           </div>
           <div className="section5-card">
-            <h2>Deal Under $199</h2>
+            <h2 className="text-xl font-semibold">Deal Under $199</h2>
             <div className="section5-card-image card-image-2"></div>
             <div className="view-more">
               <a href="#">+ View More</a>
             </div>
           </div>
           <div className="section5-card">
-            <h2>Student Travel Deals</h2>
+            <h2 className="text-xl font-semibold">Student Travel Deals</h2>
             <div className="section5-card-image card-image-3"></div>
             <div className="view-more">
               <a href="#">+ View More</a>
             </div>
           </div>
           <div className="section5-card">
-            <h2>Top Airline Deals</h2>
+            <h2 className="text-xl font-semibold">Top Airline Deals</h2>
             <div className="section5-card-image card-image-4"></div>
             <div className="view-more">
               <a href="#">+ View More</a>
@@ -407,7 +407,9 @@ const Home = () => {
 
       {/* Section 6 */}
       <section className="section3 container">
-        <h2 className="mb-15">Deals from Top Rated Hotels</h2>
+        <h2 className="mb-15 text-2xl font-semibold">
+          Deals from Top Rated Hotels
+        </h2>
         <div className="section3-inner">
           <div className="flex-mine-column">
             <div className="section3-header section3-header-3 ">
