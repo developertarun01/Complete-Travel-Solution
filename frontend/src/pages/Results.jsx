@@ -93,7 +93,7 @@ const Results = () => {
           <p className="text-gray-600">{flight.class}</p>
         </div>
         <div className="text-right">
-          <p className="text-2xl font-bold text-blue-600">${flight.price?.total || flight.price || '299'}</p>
+          <p className="text-2xl font-bold text-[var(--primary)]">${flight.price?.total || flight.price || '299'}</p>
           <p className="text-sm text-gray-600">per person</p>
         </div>
       </div>
@@ -126,7 +126,7 @@ const Results = () => {
 
       <button
         onClick={() => handleSelect(flight)}
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors"
+        className="w-full bg-[var(--accent-dark)] hover:bg-[var(--accent)] text-white py-2 px-4 rounded-lg transition-colors"
       >
         Select Flight
       </button>
@@ -161,14 +161,14 @@ const Results = () => {
 
         <div className="flex justify-between items-center mb-4">
           <div>
-            <p className="text-2xl font-bold text-blue-600">${hotel.price?.total || hotel.price || '199'}</p>
+            <p className="text-2xl font-bold text-[var(--primary)]">${hotel.price?.total || hotel.price || '199'}</p>
             <p className="text-sm text-gray-600">for {searchParams?.nights || 1} night(s)</p>
           </div>
         </div>
 
         <button
           onClick={() => handleSelect(hotel)}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors"
+          className="w-full bg-[var(--accent-dark)] hover:bg-[var(--accent)] text-white py-2 px-4 rounded-lg transition-colors"
         >
           Select Hotel
         </button>
@@ -179,7 +179,7 @@ const Results = () => {
   const renderCarCard = (car, index) => (
     <div key={car.id || index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
       <div className="flex items-center mb-4">
-        <Car className="h-12 w-12 text-blue-600 mr-4" />
+        <Car className="h-12 w-12 text-[var(--primary)] mr-4" />
         <div>
           <h3 className="text-xl font-semibold">{car.carType || 'Economy Car'}</h3>
           <p className="text-gray-600">{car.model || 'Standard Model'}</p>
@@ -207,14 +207,14 @@ const Results = () => {
 
       <div className="flex justify-between items-center mb-4">
         <div>
-          <p className="text-2xl font-bold text-blue-600">${car.price || '45'}</p>
+          <p className="text-2xl font-bold text-[var(--primary)]">${car.price || '45'}</p>
           <p className="text-sm text-gray-600">total price</p>
         </div>
       </div>
 
       <button
         onClick={() => handleSelect(car)}
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors"
+        className="w-full bg-[var(--accent-dark)] hover:bg-[var(--accent)] text-white py-2 px-4 rounded-lg transition-colors"
       >
         Rent Car
       </button>
@@ -251,14 +251,14 @@ const Results = () => {
 
         <div className="flex justify-between items-center mb-4">
           <div>
-            <p className="text-2xl font-bold text-blue-600">${cruise.price || '899'}</p>
+            <p className="text-2xl font-bold text-[var(--primary)]">${cruise.price || '899'}</p>
             <p className="text-sm text-gray-600">per person</p>
           </div>
         </div>
 
         <button
           onClick={() => handleSelect(cruise)}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors"
+          className="w-full bg-[var(--accent-dark)] hover:bg-[var(--accent)] text-white py-2 px-4 rounded-lg transition-colors"
         >
           Book Cruise
         </button>
@@ -270,7 +270,7 @@ const Results = () => {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--primary)]"></div>
           <span className="ml-4 text-gray-600">Searching for the best deals...</span>
         </div>
       </div>
@@ -287,7 +287,7 @@ const Results = () => {
             <p className="text-red-600 mb-4">{error}</p>
             <button
               onClick={() => navigate('/')}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg"
+              className="bg-[var(--accent-dark)] hover:bg-[var(--accent)] text-white px-6 py-2 rounded-lg"
             >
               Try Again
             </button>
@@ -339,7 +339,7 @@ const Results = () => {
             </p>
             <button
               onClick={() => navigate('/')}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg"
+              className="bg-[var(--accent-dark)] hover:bg-[var(--accent)] text-white px-6 py-2 rounded-lg"
             >
               New Search
             </button>

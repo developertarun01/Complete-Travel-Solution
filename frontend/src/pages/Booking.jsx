@@ -140,7 +140,7 @@ const Booking = () => {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--primary)]"></div>
         </div>
       </div>
     );
@@ -151,9 +151,9 @@ const Booking = () => {
       {/* Progress Steps */}
       <div className="flex justify-center mb-8">
         <div className="flex items-center space-x-8">
-          <div className={`flex items-center ${currentStep >= 1 ? 'text-blue-600' : 'text-gray-400'}`}>
+          <div className={`flex items-center ${currentStep >= 1 ? 'text-[var(--primary)]' : 'text-gray-400'}`}>
             <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${
-              currentStep >= 1 ? 'bg-blue-600 border-blue-600 text-white' : 'border-gray-300'
+              currentStep >= 1 ? 'bg-[var(--accent-dark)] border-[var(--primary)] text-white' : 'border-gray-300'
             }`}>
               1
             </div>
@@ -162,9 +162,9 @@ const Booking = () => {
 
           <div className="w-16 h-0.5 bg-gray-300"></div>
 
-          <div className={`flex items-center ${currentStep >= 2 ? 'text-blue-600' : 'text-gray-400'}`}>
+          <div className={`flex items-center ${currentStep >= 2 ? 'text-[var(--primary)]' : 'text-gray-400'}`}>
             <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${
-              currentStep >= 2 ? 'bg-blue-600 border-blue-600 text-white' : 'border-gray-300'
+              currentStep >= 2 ? 'bg-[var(--accent-dark)] border-[var(--primary)] text-white' : 'border-gray-300'
             }`}>
               2
             </div>
@@ -173,9 +173,9 @@ const Booking = () => {
 
           <div className="w-16 h-0.5 bg-gray-300"></div>
 
-          <div className={`flex items-center ${currentStep >= 3 ? 'text-blue-600' : 'text-gray-400'}`}>
+          <div className={`flex items-center ${currentStep >= 3 ? 'text-[var(--primary)]' : 'text-gray-400'}`}>
             <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${
-              currentStep >= 3 ? 'bg-blue-600 border-blue-600 text-white' : 'border-gray-300'
+              currentStep >= 3 ? 'bg-[var(--accent-dark)] border-[var(--primary)] text-white' : 'border-gray-300'
             }`}>
               3
             </div>
@@ -187,7 +187,7 @@ const Booking = () => {
       {/* Back Button */}
       <button
         onClick={() => currentStep > 1 ? setCurrentStep(currentStep - 1) : navigate(-1)}
-        className="flex items-center text-blue-600 hover:text-blue-700 mb-6"
+        className="flex items-center text-[var(--primary)] hover:text-[var(--primary)] mb-6"
       >
         <ArrowLeft className="h-4 w-4 mr-1" />
         Back
@@ -220,7 +220,7 @@ const Booking = () => {
               <button
                 onClick={handlePromoCodeApply}
                 disabled={loading || !promoCode.trim()}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md disabled:bg-gray-300 disabled:cursor-not-allowed"
+                className="bg-[var(--accent-dark)] hover:bg-[var(--accent)] text-white px-6 py-2 rounded-md disabled:bg-gray-300 disabled:cursor-not-allowed"
               >
                 {loading ? 'Applying...' : 'Apply'}
               </button>
@@ -247,7 +247,7 @@ const Booking = () => {
       {loading && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--primary)] mb-4"></div>
             <p className="text-gray-700">
               {currentStep === 2 ? 'Processing your booking...' : 'Loading...'}
             </p>

@@ -83,7 +83,7 @@ const Payment = () => {
           </p>
           <button
             onClick={() => setPaymentStatus('pending')}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg"
+            className="bg-[var(--accent-dark)] hover:bg-[var(--accent)] text-white px-6 py-3 rounded-lg"
           >
             Try Again
           </button>
@@ -102,8 +102,8 @@ const Payment = () => {
 
         <div className="flex items-center justify-center mb-8">
           <div className="flex items-center space-x-4 bg-blue-50 px-6 py-3 rounded-lg">
-            <Shield className="h-5 w-5 text-blue-600" />
-            <span className="text-blue-600 font-medium">Your payment is secure and encrypted</span>
+            <Shield className="h-5 w-5 text-[var(--primary)]" />
+            <span className="text-[var(--primary)] font-medium">Your payment is secure and encrypted</span>
           </div>
         </div>
 

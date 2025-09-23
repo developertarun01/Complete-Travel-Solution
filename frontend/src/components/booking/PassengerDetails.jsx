@@ -71,7 +71,7 @@ const PassengerDetails = ({ passengers, contactInfo, onChange, onNext }) => {
             onClick={() => setActivePassenger(index)}
             className={`px-4 py-2 rounded-lg border transition-colors ${
               activePassenger === index
-                ? 'bg-blue-100 border-blue-500 text-blue-700'
+                ? 'bg-blue-100 border-[var(--primary)] text-[var(--primary)]'
                 : 'border-gray-300 text-gray-600 hover:bg-gray-50'
             }`}
           >
@@ -279,7 +279,7 @@ const PassengerDetails = ({ passengers, contactInfo, onChange, onNext }) => {
           disabled={!isFormValid()}
           className={`px-8 py-3 rounded-lg font-medium text-lg transition-colors duration-200 ${
             isFormValid()
-              ? 'bg-blue-600 hover:bg-blue-700 text-white'
+              ? 'bg-[var(--accent-dark)] hover:bg-[var(--accent)] text-white'
               : 'bg-gray-300 text-gray-500 cursor-not-allowed'
           }`}
         >

@@ -143,7 +143,7 @@ const BookingSummary = ({ booking, onProceedToPayment }) => {
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
       <h2 className="text-2xl font-bold mb-6 flex items-center">
-        <CreditCard className="h-6 w-6 mr-2 text-blue-600" />
+        <CreditCard className="h-6 w-6 mr-2 text-[var(--primary)]" />
         Booking Summary
       </h2>
 
@@ -183,7 +183,7 @@ const BookingSummary = ({ booking, onProceedToPayment }) => {
 
           <button
             onClick={onProceedToPayment}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium mt-6 transition-colors duration-200"
+            className="w-full bg-[var(--accent-dark)] hover:bg-[var(--accent)] text-white py-3 px-4 rounded-lg font-medium mt-6 transition-colors duration-200"
           >
             Proceed to Payment
           </button>

@@ -148,7 +148,7 @@ const ThankYou = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-lg font-semibold mb-4 flex items-center">
-                  <Calendar className="h-5 w-5 mr-2 text-blue-600" />
+                  <Calendar className="h-5 w-5 mr-2 text-[var(--primary)]" />
                   Booking Information
                 </h3>
                 <div className="space-y-3">
@@ -171,7 +171,7 @@ const ThankYou = () => {
 
               <div>
                 <h3 className="text-lg font-semibold mb-4 flex items-center">
-                  <MapPin className="h-5 w-5 mr-2 text-blue-600" />
+                  <MapPin className="h-5 w-5 mr-2 text-[var(--primary)]" />
                   Travel Details
                 </h3>
                 <div className="space-y-3">
@@ -213,7 +213,7 @@ const ThankYou = () => {
           {/* Passenger Information */}
           <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center">
-              <Users className="h-6 w-6 mr-2 text-blue-600" />
+              <Users className="h-6 w-6 mr-2 text-[var(--primary)]" />
               Passenger Information
             </h2>
             
@@ -291,7 +291,7 @@ const ThankYou = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={handleDownloadItinerary}
-              className="flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+              className="flex items-center justify-center space-x-2 bg-[var(--accent-dark)] hover:bg-[var(--accent)] text-white px-6 py-3 rounded-lg transition-colors"
             >
               <Download className="h-5 w-5" />
               <span>Download Itinerary</span>
@@ -316,7 +316,7 @@ const ThankYou = () => {
           {/* Support Information */}
           <div className="text-center mt-12">
             <p className="text-gray-600 mb-2">Need help with your booking?</p>
-            <p className="text-blue-600 font-semibold">support@completetravel.com • +1 (555) 123-4567</p>
+            <p className="text-[var(--primary)] font-semibold">support@completetravel.com • +1 (555) 123-4567</p>
           </div>
         </div>
       </div>

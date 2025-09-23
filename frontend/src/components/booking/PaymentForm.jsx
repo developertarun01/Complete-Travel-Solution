@@ -65,7 +65,7 @@ const PaymentForm = ({ booking, onPaymentSuccess, onPaymentError }) => {
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
       <h2 className="text-2xl font-bold mb-6 flex items-center">
-        <CreditCard className="h-6 w-6 mr-2 text-blue-600" />
+        <CreditCard className="h-6 w-6 mr-2 text-[var(--primary)]" />
         Payment Details
       </h2>
 
@@ -81,7 +81,7 @@ const PaymentForm = ({ booking, onPaymentSuccess, onPaymentError }) => {
                 value="card"
                 checked={paymentMethod === 'card'}
                 onChange={() => setPaymentMethod('card')}
-                className="h-4 w-4 text-blue-600"
+                className="h-4 w-4 text-[var(--primary)]"
               />
               <CreditCard className="h-5 w-5 mx-3" />
               <span>Credit/Debit Card</span>
@@ -94,7 +94,7 @@ const PaymentForm = ({ booking, onPaymentSuccess, onPaymentError }) => {
                 value="paypal"
                 checked={paymentMethod === 'paypal'}
                 onChange={() => setPaymentMethod('paypal')}
-                className="h-4 w-4 text-blue-600"
+                className="h-4 w-4 text-[var(--primary)]"
               />
               <Lock className="h-5 w-5 mx-3" />
               <span>PayPal</span>
@@ -176,7 +176,7 @@ const PaymentForm = ({ booking, onPaymentSuccess, onPaymentError }) => {
                 className={`w-full py-3 px-4 rounded-lg font-medium mt-6 transition-colors duration-200 flex items-center justify-center ${
                   isProcessing
                     ? 'bg-gray-400 text-white cursor-not-allowed'
-                    : 'bg-blue-600 hover:bg-blue-700 text-white'
+                    : 'bg-[var(--accent-dark)] hover:bg-[var(--accent)] text-white'
                 }`}
               >
                 {isProcessing ? (
@@ -197,7 +197,7 @@ const PaymentForm = ({ booking, onPaymentSuccess, onPaymentError }) => {
           {paymentMethod === 'paypal' && (
             <div className="text-center py-8">
               <div className="bg-gray-100 p-6 rounded-lg">
-                <Lock className="h-12 w-12 mx-auto text-blue-600 mb-4" />
+                <Lock className="h-12 w-12 mx-auto text-[var(--primary)] mb-4" />
                 <h4 className="text-lg font-semibold mb-2">Pay with PayPal</h4>
                 <p className="text-gray-600 mb-4">
                   You will be redirected to PayPal to complete your payment securely.
