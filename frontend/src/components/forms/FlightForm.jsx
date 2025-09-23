@@ -4,12 +4,18 @@ import { Calendar, Users, ArrowRightLeft } from "lucide-react";
 
 const FlightForm = () => {
   const navigate = useNavigate();
+  const today = new Date().toISOString().split("T")[0];
+
+  const today2 = new Date();
+  today2.setDate(today2.getDate() + 5); // ✅ add 5 days
+  const fiveDaysLater = today2.toISOString().split("T")[0];
+
   const [formData, setFormData] = useState({
     tripType: "roundTrip",
     origin: "",
     destination: "",
-    fromDate: "",
-    toDate: "",
+    fromDate: today,
+    toDate: fiveDaysLater,
     adults: 1,
     children: 0,
     travelClass: "ECONOMY",
@@ -68,7 +74,7 @@ const FlightForm = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {/* Row 1: Trip Type - Responsive for mobile */}
-      <div className="flex sm:flex-row space-x-4">
+      <div className="flex sm:flex-row space-x-4 justify-center sm:justify-start">
         <button
           type="button"
           className={`flex items-center justify-center space-x-2 px-4 py-3 rounded-lg border transition-colors h-12 ${
@@ -161,7 +167,7 @@ const FlightForm = () => {
               className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12"
               required
             />
-            <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+            {/* <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" /> */}
           </div>
         </div>
 
@@ -180,7 +186,7 @@ const FlightForm = () => {
                 className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12"
                 required
               />
-              <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+              {/* <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" /> */}
             </div>
           </div>
         ) : (

@@ -4,10 +4,16 @@ import { MapPin, Calendar, Bed, Users } from "lucide-react";
 
 const HotelForm = () => {
   const navigate = useNavigate();
+  const today = new Date().toISOString().split("T")[0];
+
+  const today5 = new Date();
+  today5.setDate(today5.getDate() + 5);
+  const fiveDaysLater = today5.toISOString().split("T")[0];
+
   const [formData, setFormData] = useState({
     destination: "",
-    checkInDate: "",
-    checkOutDate: "",
+    checkInDate: today,
+    checkOutDate: fiveDaysLater,
     rooms: 1,
     adults: 1,
     children: 0,

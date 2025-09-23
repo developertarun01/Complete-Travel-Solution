@@ -4,11 +4,33 @@ import { MapPin, Calendar, Car, User } from "lucide-react";
 
 const CarForm = () => {
   const navigate = useNavigate();
+  const getTodayAndFiveDaysLater = () => {
+    const format = (d) => {
+      const year = d.getFullYear();
+      const month = String(d.getMonth() + 1).padStart(2, "0");
+      const day = String(d.getDate()).padStart(2, "0");
+      const hours = String(d.getHours()).padStart(2, "0");
+      const minutes = String(d.getMinutes()).padStart(2, "0");
+      return `${year}-${month}-${day}T${hours}:${minutes}`;
+    };
+
+    const now = new Date();
+    const fiveDays = new Date(now);
+    fiveDays.setDate(fiveDays.getDate() + 5);
+
+    return {
+      today: format(now),
+      fiveDaysLater: format(fiveDays),
+    };
+  };
+
+  const { today, fiveDaysLater } = getTodayAndFiveDaysLater();
+
   const [formData, setFormData] = useState({
     pickupLocation: "",
     dropLocation: "",
-    fromDateTime: "",
-    toDateTime: "",
+    fromDateTime: today,
+    toDateTime: fiveDaysLater,
     age: 25,
   });
 

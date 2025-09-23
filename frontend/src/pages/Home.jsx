@@ -41,7 +41,7 @@ const Home = () => {
               Book Cheap Flights Online
             </h3>
           </div>
-          <div className="container w-full ">
+          <div className="w-full container">
             <div className="tabs w-full ">
               {/* Booking Tabs */}
               <div className="w-full">
@@ -49,7 +49,7 @@ const Home = () => {
                   className="
       w-full
       grid
-      grid-cols-2     
+      grid-cols-4     
       md:grid-cols-4   
       lg:grid-cols-4    
       justify-items-center
@@ -61,13 +61,13 @@ const Home = () => {
                       <button
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
-                        className={`w-full flex items-center space-x-2 px-6 py-3 border transition-all duration-200 ${
+                        className={`w-full flex items-center justify-center space-x-0 sm:space-x-2 px-auto py-3 border transition-all duration-200 ${
                           activeTab === tab.id
                             ? "bg-[var(--primary)] border-[var(--primary)] border-b-[var(--accent-dark)] text-white shadow-lg"
                             : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:border-[var(--primary)]"
                         }`}
                       >
-                        <Icon className="h-5 w-5" />
+                        <Icon className="hidden sm:block h-5 w-5" />
                         <span className="font-medium">{tab.label}</span>
                       </button>
                     );

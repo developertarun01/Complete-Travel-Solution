@@ -45,8 +45,8 @@
 :root {
   --primary: #00444e; /* Deep teal – trust, stability */
   --secondary: #00bcd4; /* Bright cyan – energy, travel vibe */
-  --accent: #b85000fa; /* Warm golden – highlights (sun, vacation) */
-  --accent-dark: #ff6f00fa;
+  --accent: #d35b00; /* Warm golden – highlights (sun, vacation) */
+  --accent-dark: #ff6f00;
   --button: #00a651; /* Fresh green – for CTAs (Book Now, Search) */
   --button-hover: #007a3d; /* Darker green – hover/active state */
   --background: #e3e3e4; /* Light, clean background */
