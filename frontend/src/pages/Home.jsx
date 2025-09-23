@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FlightForm from "../components/forms/FlightForm";
 import HotelForm from "../components/forms/HotelForm";
 import CarForm from "../components/forms/CarForm";
@@ -29,6 +29,16 @@ const Home = () => {
         return <FlightForm />;
     }
   };
+
+  useEffect(() => {
+    // Start from Section 1
+    if (window.innerWidth <= 655) {
+      const section1 = document.querySelector(".section1");
+      if (section1) {
+        section1.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
 
   return (
     <>
