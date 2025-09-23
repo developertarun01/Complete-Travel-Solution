@@ -245,6 +245,7 @@ body {
     text-align: center;
     font-size: 3rem;
     transition: 0.3s ease;
+    z-index: 999;
   }
 
   .header-details.active {
@@ -254,8 +255,8 @@ body {
 
   .all-deals {
     grid-template-columns: 1fr;
-    width: 50%;
-    left: 23%;
+    /* width: 50%;
+    left: 23%; */
     top: 0;
   }
 
@@ -269,6 +270,7 @@ body {
     margin-left: auto;
     position: relative;
     display: block;
+    z-index: 9999999;
   }
 
   .ham-menu.active {

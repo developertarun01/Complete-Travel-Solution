@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 const Navbar = () => {
   useEffect(() => {
+    // Hamburger menu functionality
     const hamMenu = document.querySelector(".ham-menu");
     const details = document.querySelector(".header-details");
     const allDeals = document.getElementById("all-deals");
@@ -15,10 +16,33 @@ const Navbar = () => {
 
       hamMenu.addEventListener("click", toggleMenu);
 
-      // cleanup to avoid duplicate listeners
+      // Deals dropdown functionality
+      const dealsElement = document.getElementById("deals");
+      if (dealsElement) {
+        const toggleDealsDropdown = (e) => {
+          e.preventDefault();
+          const currentDisplay = window.getComputedStyle(allDeals).display;
+
+          if (currentDisplay === "none") {
+            allDeals.style.display = "grid";
+          } else {
+            allDeals.style.display = "none";
+          }
+        };
+
+        dealsElement.addEventListener("click", toggleDealsDropdown);
+
+        // Cleanup to avoid duplicate listeners
+        return () => {
+          hamMenu.removeEventListener("click", toggleMenu);
+          dealsElement.removeEventListener("click", toggleDealsDropdown);
+        };
+      }
+
       return () => hamMenu.removeEventListener("click", toggleMenu);
     }
   }, []);
+
   return (
     <>
       <header>
