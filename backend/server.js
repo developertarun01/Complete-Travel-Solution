@@ -10,8 +10,18 @@ const paymentRoutes = require('./routes/payment');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// CORS configuration - simplified for Vercel
+const corsOptions = {
+  origin: [
+    'http://localhost:5173',
+    'https://complete-travel-solution.vercel.app'
+  ],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Database connection
