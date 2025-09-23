@@ -206,7 +206,6 @@ const FlightForm = () => {
         )}
 
         {/* Guest Selector - Combined Display */}
-        {/* Guest Selector - Combined Display */}
         <div className="sm:col-span-2">
           <div className="relative">
             {/* Main display that shows the selection */}
