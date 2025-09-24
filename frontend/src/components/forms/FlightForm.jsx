@@ -84,38 +84,38 @@ const FlightForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-2">
       {/* Row 1: Trip Type - Responsive for mobile */}
-      <div className="flex sm:flex-row space-x-4 justify-center sm:justify-start">
-        <button
-          type="button"
-          className={`flex items-center justify-center space-x-2 px-4 py-3 rounded-lg border transition-colors h-12 ${
-            formData.tripType === "roundTrip"
-              ? "bg-[var(--primary)] border-[var(--primary)] text-white"
-              : "border-gray-300 text-gray-600 hover:border-[var(--primary)]"
-          }`}
-          onClick={() =>
-            setFormData((prev) => ({ ...prev, tripType: "roundTrip" }))
-          }
-        >
-          <ArrowRightLeft className="h-4 w-4" />
-          <span>Round Trip</span>
-        </button>
+      <div className="flex items-center space-x-6 justify-center sm:justify-start">
+        {/* Round Trip */}
+        <label className="flex items-center space-x-2 cursor-pointer">
+          <input
+            type="radio"
+            name="tripType"
+            value="roundTrip"
+            checked={formData.tripType === "roundTrip"}
+            onChange={() =>
+              setFormData((prev) => ({ ...prev, tripType: "roundTrip" }))
+            }
+            className="h-4 w-4 text-[var(--primary)] focus:ring-[var(--primary)]"
+          />
+          <span className="text-gray-700">Round Trip</span>
+        </label>
 
-        <button
-          type="button"
-          className={`flex items-center justify-center space-x-2 px-4 py-3 rounded-lg border transition-colors h-12 ${
-            formData.tripType === "oneWay"
-              ? "bg-[var(--primary)] border-[var(--primary)] text-white"
-              : "border-gray-300 text-gray-600 hover:border-[var(--primary)]"
-          }`}
-          onClick={() =>
-            setFormData((prev) => ({ ...prev, tripType: "oneWay" }))
-          }
-        >
-          <ArrowRightLeft className="h-4 w-4" />
-          <span>One Way</span>
-        </button>
+        {/* One Way */}
+        <label className="flex items-center space-x-2 cursor-pointer">
+          <input
+            type="radio"
+            name="tripType"
+            value="oneWay"
+            checked={formData.tripType === "oneWay"}
+            onChange={() =>
+              setFormData((prev) => ({ ...prev, tripType: "oneWay" }))
+            }
+            className="h-4 w-4 text-[var(--primary)] focus:ring-[var(--primary)]"
+          />
+          <span className="text-gray-700">One Way</span>
+        </label>
       </div>
 
       {/* Row 2: All other elements - Responsive for mobile */}
@@ -208,28 +208,9 @@ const FlightForm = () => {
         {/* Guest Selector - Combined Display */}
         <div className="sm:col-span-2">
           <div className="relative">
-            {/* Main display that shows the selection */}
-            <div
-              className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12 flex items-center justify-between cursor-pointer"
-              onClick={() => setIsGuestSelectorOpen(!isGuestSelectorOpen)}
-            >
-              <span>
-                {formData.adults} Adult{formData.adults > 1 ? "s" : ""}
-                {formData.children > 0 &&
-                  `, ${formData.children} Child${
-                    formData.children !== 1 ? "ren" : ""
-                  }`}
-              </span>
-              <ChevronDown
-                className={`h-4 w-4 text-gray-400 transition-transform ${
-                  isGuestSelectorOpen ? "rotate-180" : ""
-                }`}
-              />
-            </div>
-
             {/* Dropdown selector */}
             {isGuestSelectorOpen && (
-              <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10">
+              <div className="absolute bottom-full left-0 right-0 mb-1 bg-white border border-gray-300 rounded-md shadow-lg z-50">
                 {/* Adults Counter */}
                 <div className="p-4 border-b border-gray-200">
                   <div className="flex justify-between items-center">
@@ -316,6 +297,24 @@ const FlightForm = () => {
                 </div>
               </div>
             )}
+            {/* Main display that shows the selection */}
+            <div
+              className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12 flex items-center justify-between cursor-pointer"
+              onClick={() => setIsGuestSelectorOpen(!isGuestSelectorOpen)}
+            >
+              <span>
+                {formData.adults} Adult{formData.adults > 1 ? "s" : ""}
+                {formData.children > 0 &&
+                  `, ${formData.children} Child${
+                    formData.children !== 1 ? "ren" : ""
+                  }`}
+              </span>
+              <ChevronDown
+                className={`h-4 w-4 text-gray-400 transition-transform ${
+                  isGuestSelectorOpen ? "rotate-180" : ""
+                }`}
+              />
+            </div>
           </div>
         </div>
 

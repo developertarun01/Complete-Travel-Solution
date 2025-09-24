@@ -153,7 +153,7 @@ body {
 .header {
   justify-content: space-between;
   padding: 10px 20px;
-  background-color: var(--text-light);
+  background-color: rgba(255, 255, 255, 0.8); /* 50% transparent white */
 }
 
 .header-brand {
@@ -335,14 +335,14 @@ body {
 /* Form Section 1  */
 .section1 {
   /* height: 70vh; */
-  /* background: linear-gradient(to bottom, transparent 60%, var(--text-light) 40%),
+  /* background: linear-gradient(to bottom, transparent 70%, var(--text-light) 30%),
     url("/images/beach6.jpg") center/cover no-repeat; */
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
-      transparent calc(60% - 1px),
-      var(--text-light) 60%
+      transparent calc(50% - 1px),
+      var(--text-light) 50%
     ),
-    url("/images/beach6.jpg") center/cover no-repeat;
+    url("/images/beach6.jpg") center/cover no-repeat; */
 }
 
 .all-forms {
