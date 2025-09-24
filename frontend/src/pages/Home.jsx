@@ -50,7 +50,7 @@ const Home = () => {
   useEffect(() => {
     // Start from Section 1
     if (window.innerWidth <= 655) {
-      const section1 = document.querySelector(".section1");
+      const section1 = document.querySelector(".section1-container");
       if (section1) {
         section1.scrollIntoView({ behavior: "smooth" });
       }
