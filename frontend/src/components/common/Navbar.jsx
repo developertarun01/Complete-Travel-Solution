@@ -48,7 +48,7 @@ const Navbar = () => {
       <header>
         <div className="flex-mine header">
           <div className="header-brand">
-            <h1 className="text-3xl font-semibold">Brand</h1>
+            <h1 className="text-3xl font-semibold">Company</h1>
           </div>
 
           <div className="header-details flex-mine">

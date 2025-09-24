@@ -35,7 +35,7 @@ function App() {
   return (
     <Router>
       <div className="App flex flex-col min-h-screen bg-gray-50">
-        {/* <Navbar /> */}
+        <Navbar />
         <main className="flex-grow">
           <NavigationHandler />
           <Routes>

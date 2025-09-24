@@ -299,7 +299,7 @@ const FlightForm = () => {
             )}
             {/* Main display that shows the selection */}
             <div
-              className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12 flex items-center justify-between cursor-pointer"
+              className="w-full px-3 py-3 border bg-white border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12 flex items-center justify-between cursor-pointer"
               onClick={() => setIsGuestSelectorOpen(!isGuestSelectorOpen)}
             >
               <span>
