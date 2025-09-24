@@ -50,7 +50,7 @@ const Home = () => {
   useEffect(() => {
     // Start from Section 1
     if (window.innerWidth <= 655) {
-      const section1 = document.querySelector(".section1-container");
+      const section1 = document.querySelector(".starting");
       if (section1) {
         section1.scrollIntoView({ behavior: "smooth" });
       }
@@ -106,7 +106,7 @@ const Home = () => {
       <section
         className="section1"
         style={{
-          background: `linear-gradient(to bottom, transparent 70%, var(--text-light) 30%),
+          background: `linear-gradient(to bottom, transparent 80%, var(--text-light) 20%),
     url(${currentBg}) center/cover no-repeat`,
         }}
       >
@@ -307,7 +307,7 @@ const Home = () => {
               Book Cheap Flights Online
             </h3>
           </div>
-          <div className="w-full container">
+          <div className="w-full starting container">
             <div className="tabs w-full ">
               {/* Booking Tabs */}
               <div className="w-full">
@@ -348,13 +348,28 @@ const Home = () => {
           <div className="review-card">
             <div className="review-title">Google</div>
             <div className="flex-mine stars">
-              <i className="fa-solid fa-star fa-lg"></i>
-              <i className="fa-solid fa-star fa-lg"></i>
-              <i className="fa-solid fa-star fa-lg"></i>
-              <i className="fa-solid fa-star fa-lg"></i>
-              <i className="fa-regular fa-star fa-lg"></i>
+              <i
+                className="fa-solid fa-star fa-lg"
+                style={{ color: "orange" }}
+              ></i>
+              <i
+                className="fa-solid fa-star fa-lg"
+                style={{ color: "orange" }}
+              ></i>
+              <i
+                className="fa-solid fa-star fa-lg"
+                style={{ color: "orange" }}
+              ></i>
+              <i
+                className="fa-solid fa-star fa-lg"
+                style={{ color: "orange" }}
+              ></i>
+              <i
+                className="fa-regular fa-star fa-lg"
+                style={{ color: "orange" }}
+              ></i>
             </div>
-            <div className="review-rating" style={{ color: "var(--primary)" }}>
+            <div className="review-rating" style={{ color: "orange" }}>
               Score 4.1/5
             </div>
             <div className="review-count">1,605 Reviews</div>
