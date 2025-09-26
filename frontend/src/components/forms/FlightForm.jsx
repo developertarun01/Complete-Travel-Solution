@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Calendar, Users, ArrowRightLeft } from "lucide-react";
-import { ChevronDown, Plus, Minus } from "lucide-react";
+import {
+  Calendar,
+  Users,
+  ArrowRightLeft,
+  ChevronDown,
+  Plus,
+  Minus,
+} from "lucide-react";
+import AirportSearchInput from "./AirportSearchInput";
 
 const FlightForm = () => {
   const navigate = useNavigate();
@@ -9,14 +16,7 @@ const FlightForm = () => {
 
   // Add to your component state
   const [isGuestSelectorOpen, setIsGuestSelectorOpen] = useState(false);
-
-  // Add this handler function
-  const handleGuestChange = (type, value) => {
-    setFormData((prev) => ({
-      ...prev,
-      [type]: value,
-    }));
-  };
+  const [validationErrors, setValidationErrors] = useState({});
 
   const today2 = new Date();
   today2.setDate(today2.getDate() + 5); // ✅ add 5 days
@@ -33,25 +33,81 @@ const FlightForm = () => {
     travelClass: "ECONOMY",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (name, value) => {
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
+
+    // Clear validation error when user starts typing
+    if (validationErrors[name]) {
+      setValidationErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
+  };
+
+  // Add this handler function
+  const handleGuestChange = (type, value) => {
+    setFormData((prev) => ({
+      ...prev,
+      [type]: value,
+    }));
+  };
+
+  const swapLocations = () => {
+    setFormData((prev) => ({
+      ...prev,
+      origin: prev.destination,
+      destination: prev.origin,
+    }));
+  };
+
+  const validateForm = () => {
+    const errors = {};
+
+    if (!formData.origin || formData.origin.length !== 3) {
+      errors.origin = "Please select a valid origin airport";
+    }
+
+    if (!formData.destination || formData.destination.length !== 3) {
+      errors.destination = "Please select a valid destination airport";
+    }
+
+    if (formData.origin === formData.destination) {
+      errors.destination = "Origin and destination cannot be the same";
+    }
+
+    if (!formData.fromDate) {
+      errors.fromDate = "Departure date is required";
+    }
+
+    if (formData.tripType === "roundTrip" && !formData.toDate) {
+      errors.toDate = "Return date is required for round trips";
+    }
+
+    if (
+      formData.toDate &&
+      formData.fromDate &&
+      new Date(formData.toDate) <= new Date(formData.fromDate)
+    ) {
+      errors.toDate = "Return date must be after departure date";
+    }
+
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate form
-    if (!formData.origin || !formData.destination || !formData.fromDate) {
-      alert("Please fill in all required fields");
-      return;
-    }
-
-    if (formData.tripType === "roundTrip" && !formData.toDate) {
-      alert("Please select return date for round trip");
+    if (!validateForm()) {
       return;
     }
 
@@ -94,9 +150,7 @@ const FlightForm = () => {
             name="tripType"
             value="roundTrip"
             checked={formData.tripType === "roundTrip"}
-            onChange={() =>
-              setFormData((prev) => ({ ...prev, tripType: "roundTrip" }))
-            }
+            onChange={() => handleChange("tripType", "roundTrip")}
             className="h-4 w-4 text-[var(--primary)] focus:ring-[var(--primary)]"
           />
           <span className="text-gray-700">Round Trip</span>
@@ -109,9 +163,7 @@ const FlightForm = () => {
             name="tripType"
             value="oneWay"
             checked={formData.tripType === "oneWay"}
-            onChange={() =>
-              setFormData((prev) => ({ ...prev, tripType: "oneWay" }))
-            }
+            onChange={() => handleChange("tripType", "oneWay")}
             className="h-4 w-4 text-[var(--primary)] focus:ring-[var(--primary)]"
           />
           <span className="text-gray-700">One Way</span>
@@ -126,7 +178,7 @@ const FlightForm = () => {
             <select
               name="travelClass"
               value={formData.travelClass}
-              onChange={handleChange}
+              onChange={handleInputChange}
               className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12"
             >
               <option value="ECONOMY">Economy</option>
@@ -137,34 +189,53 @@ const FlightForm = () => {
           </div>
         </div>
 
-        {/* From */}
-        <div className="sm:col-span-1">
-          <input
-            type="text"
-            name="origin"
-            value={formData.origin}
-            onChange={handleChange}
-            placeholder="From (e.g., JFK)"
-            className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12"
-            required
-            maxLength={3}
-            pattern="[A-Za-z]{3}"
-          />
-        </div>
+        {/* Flight Route Section */}
+        <div className="sm:col-span-2 relative">
+          <div className="grid grid-cols-2 gap-3 relative">
+            {/* From */}
+            <div>
+              <AirportSearchInput
+                name="origin"
+                value={formData.origin}
+                onChange={handleChange}
+                placeholder="From (e.g., JFK or New York)"
+                required={true}
+                className="h-12"
+              />
+              {validationErrors.origin && (
+                <p className="text-red-500 text-xs mt-1 absolute">
+                  {validationErrors.origin}
+                </p>
+              )}
+            </div>
 
-        {/* To */}
-        <div className="sm:col-span-1">
-          <input
-            type="text"
-            name="destination"
-            value={formData.destination}
-            onChange={handleChange}
-            placeholder="To (e.g., LAX)"
-            className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12"
-            required
-            maxLength={3}
-            pattern="[A-Za-z]{3}"
-          />
+            {/* Swap Button */}
+            <button
+              type="button"
+              onClick={swapLocations}
+              className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bg-white border border-gray-300 rounded-full p-2 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+              title="Swap locations"
+            >
+              {/* <Swap className="h-4 w-4 text-gray-600" /> */}
+            </button>
+
+            {/* To */}
+            <div>
+              <AirportSearchInput
+                name="destination"
+                value={formData.destination}
+                onChange={handleChange}
+                placeholder="To (e.g., LAX or London)"
+                required={true}
+                className="h-12"
+              />
+              {validationErrors.destination && (
+                <p className="text-red-500 text-xs mt-1 absolute">
+                  {validationErrors.destination}
+                </p>
+              )}
+            </div>
+          </div>
         </div>
 
         {/* Departure Date */}
@@ -174,12 +245,16 @@ const FlightForm = () => {
               type="date"
               name="fromDate"
               value={formData.fromDate}
-              onChange={handleChange}
+              onChange={handleInputChange}
               min={new Date().toISOString().split("T")[0]}
               className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12"
               required
             />
-            {/* <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" /> */}
+            {validationErrors.fromDate && (
+              <p className="text-red-500 text-xs mt-1 absolute">
+                {validationErrors.fromDate}
+              </p>
+            )}
           </div>
         </div>
 
@@ -191,14 +266,18 @@ const FlightForm = () => {
                 type="date"
                 name="toDate"
                 value={formData.toDate}
-                onChange={handleChange}
+                onChange={handleInputChange}
                 min={
                   formData.fromDate || new Date().toISOString().split("T")[0]
                 }
                 className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)] h-12"
                 required
               />
-              {/* <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" /> */}
+              {validationErrors.toDate && (
+                <p className="text-red-500 text-xs mt-1 absolute">
+                  {validationErrors.toDate}
+                </p>
+              )}
             </div>
           </div>
         ) : (

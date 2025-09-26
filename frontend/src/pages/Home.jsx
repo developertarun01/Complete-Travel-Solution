@@ -103,6 +103,7 @@ const Home = () => {
             {/* Booking Form */}
             <div>
               <div className="bg-slate-200 rounded-b-xl shadow-2xl p-4 md:p-4 mb-6">
+                {/* Temporary test component - remove after testing */}
                 {renderForm()}
               </div>
             </div>

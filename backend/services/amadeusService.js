@@ -2,7 +2,6 @@ const { amadeus, extractAmadeusError } = require('../config/amadeus');
 
 class AmadeusService {
   // Check if Amadeus API is properly configured and working
-  // Check if Amadeus API is properly configured and working
   async isAmadeusAvailable() {
     try {
       // ✅ Call checkinLinks with a sample airline code (BA = British Airways)
@@ -26,6 +25,111 @@ class AmadeusService {
     }
   }
 
+  async searchAirports(keyword) {
+    try {
+      console.log('🔍 Making REAL Amadeus API call for:', keyword);
+
+      // Make API call to Amadeus
+      const response = await amadeus.referenceData.locations.get({
+        keyword: keyword,
+        subType: 'AIRPORT,CITY',
+        'page[limit]': 20,
+        'page[offset]': 0,
+        sort: 'analytics.travelers.score',
+        view: 'FULL'
+      });
+
+      console.log('✅ Real Amadeus API response received');
+      console.log('📊 Raw response data length:', response.data?.length || 0);
+
+      if (!response.data || response.data.length === 0) {
+        console.log('📋 No results from Amadeus API');
+        return this.getMockAirportData(keyword);
+      }
+
+      const formattedResults = this.formatAirportResponse(response.data);
+      console.log(`🎯 Found ${formattedResults.length} REAL Amadeus results for "${keyword}"`);
+
+      return formattedResults;
+    } catch (error) {
+      console.error('❌ Real Amadeus API call failed:');
+      console.error('💡 Error message:', error.message);
+      console.error('💡 Error code:', error.code);
+
+      // Fallback to mock data
+      console.log('📋 Falling back to mock data due to API error');
+      return this.getMockAirportData(keyword);
+    }
+  }
+
+  // Format Amadeus API response
+  formatAirportResponse(data) {
+    if (!data || !Array.isArray(data)) {
+      console.log('❌ Invalid data format from Amadeus');
+      return [];
+    }
+
+    console.log(`📊 Processing ${data.length} raw results from Amadeus`);
+
+    const formatted = data
+      .map((location, index) => {
+        try {
+          const result = {
+            id: location.id || `loc-${index}`,
+            type: location.subType?.toLowerCase() || 'airport',
+            name: location.name || 'Unknown Location',
+            code: location.iataCode || '',
+            city: location.address?.cityName || '',
+            country: location.address?.countryName || '',
+            region: location.address?.regionCode || '',
+            coordinates: {
+              latitude: location.geoCode?.latitude || 0,
+              longitude: location.geoCode?.longitude || 0
+            },
+            relevance: location.analytics?.travelers?.score || 50,
+            source: 'amadeus'
+          };
+
+          // Filter out invalid entries (no IATA code or name)
+          if (!result.code && !result.name) {
+            return null;
+          }
+
+          return result;
+        } catch (error) {
+          console.error('Error formatting location:', error);
+          return null;
+        }
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.relevance - a.relevance);
+
+    console.log(`✅ Successfully formatted ${formatted.length} REAL locations`);
+    return formatted;
+  }
+
+  // Enhanced mock data (fallback)
+  getMockAirportData(keyword) {
+    const searchTerm = keyword.toLowerCase();
+    console.log(`📋 Using MOCK data for search: "${keyword}"`);
+
+    const globalAirports = [
+      // ... (keep your existing mock data)
+      { id: 'JFK', type: 'airport', name: 'John F Kennedy International Airport', code: 'JFK', city: 'New York', country: 'United States', relevance: 100, source: 'mock' },
+      { id: 'DEL', type: 'airport', name: 'Indira Gandhi International Airport', code: 'DEL', city: 'Delhi', country: 'India', relevance: 92, source: 'mock' },
+      { id: 'PEK', type: 'airport', name: 'Beijing Capital International Airport', code: 'PEK', city: 'Beijing', country: 'China', relevance: 95, source: 'mock' },
+      // ... more airports
+    ];
+
+    const results = globalAirports.filter(location =>
+      location.code.toLowerCase().includes(searchTerm) ||
+      location.name.toLowerCase().includes(searchTerm) ||
+      location.city.toLowerCase().includes(searchTerm) ||
+      location.country.toLowerCase().includes(searchTerm)
+    );
+
+    return results.sort((a, b) => b.relevance - a.relevance);
+  }
 
   // Flight search
   async searchFlights(params) {
